@@ -1,10 +1,1 @@
-{
-  "name":"Control NFC - Ingreso Vehicular",
-  "short_name":"Control NFC",
-  "start_url":"./",
-  "display":"standalone",
-  "background_color":"#f4f7f6",
-  "theme_color":"#0f766e",
-  "lang":"es-CO",
-  "icons":[]
-}
+{"name":"Control NFC Terragrata","short_name":"NFC Terragrata","start_url":"./","display":"standalone","theme_color":"#0f766e","lang":"es-CO"}
