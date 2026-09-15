@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+<title>Control NFC - Conjunto</title>
+</head>
+<body>
+<header>
+  <div><strong>CONTROL NFC</strong><small>Ingreso vehicular</small></div>
+  <button id="installBtn" class="secondary hidden">Instalar</button>
+</header>
+
+<main>
+<section id="access" class="screen active">
+  <div class="card hero">
+    <h1>Ingreso vehicular</h1>
+    <p>Acerca el chip NFC al celular del vigilante.</p>
+    <button id="scanBtn" class="primary big">📳 Leer chip NFC</button>
+    <button id="demoBtn" class="secondary">Probar sin NFC</button>
+    <div id="result" class="result neutral">Esperando lectura…</div>
+  </div>
+  <div class="card">
+    <h2>Últimos ingresos</h2>
+    <div id="recent"></div>
+  </div>
+</section>
+
+<section id="vehicles" class="screen">
+  <div class="card">
+    <h2>Vehículos</h2>
+    <form id="vehicleForm">
+      <input id="apto" placeholder="Apartamento" required>
+      <input id="resident" placeholder="Nombre del residente" required>
+      <input id="plate" placeholder="Placa" maxlength="6" required>
+      <input id="type" placeholder="Tipo / marca / modelo">
+      <input id="color" placeholder="Color">
+      <input id="nfc" placeholder="ID del chip NFC" required>
+      <select id="status"><option value="activo">Activo</option><option value="bloqueado">Bloqueado</option></select>
+      <button class="primary">Guardar vehículo</button>
+    </form>
+  </div>
+  <div class="card">
+    <input id="vehicleSearch" placeholder="Buscar placa, apartamento o residente">
+    <div id="vehicleList"></div>
+  </div>
+</section>
+
+<section id="logs" class="screen">
+  <div class="card">
+    <h2>Historial de accesos</h2>
+    <div class="actions">
+      <button id="exportBtn" class="secondary">⬇ Exportar CSV</button>
+      <button id="clearLogsBtn" class="danger">Borrar historial</button>
+    </div>
+    <div id="logList"></div>
+  </div>
+</section>
+
+<section id="settings" class="screen">
+  <div class="card">
+    <h2>Configuración</h2>
+    <p><b>Modo actual:</b> validación manual.</p>
+    <p>La plataforma identifica el chip, valida el vehículo y registra el evento. La talanquera continúa siendo levantada manualmente por el vigilante.</p>
+    <hr>
+    <h3>Datos de prueba</h3>
+    <button id="seedBtn" class="secondary">Cargar vehículos de ejemplo</button>
+    <button id="resetBtn" class="danger">Restablecer aplicación</button>
+  </div>
+</section>
+</main>
+
+<nav>
+<button data-screen="access" class="active">🚗<span>Ingreso</span></button>
+<button data-screen="vehicles">👥<span>Vehículos</span></button>
+<button data-screen="logs">📋<span>Historial</span></button>
+<button data-screen="settings">⚙️<span>Config.</span></button>
+</nav>
+
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
